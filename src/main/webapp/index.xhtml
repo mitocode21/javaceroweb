@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"> 
+
+<h:head></h:head> 
+<body> 
+	<h:form>
+		<p:inputText value="#{sorteoBean.nombre}"/>
+		<p:commandButton value="Agregar" actionListener="#{sorteoBean.agregar()}" update="tabla"/>
+		<p:commandButton value="Sortear" actionListener="#{sorteoBean.sortear()}" update="lblGanador"/>
+		
+		<p:outputLabel id="lblGanador" value="#{sorteoBean.ganador}"/>
+		
+		<p:dataTable id="tabla" value="#{sorteoBean.lista}" var="e">
+			<p:column headerText="Nombre">
+				#{e}
+			</p:column>		
+		</p:dataTable>
+	</h:form>
+</body> 
+</html>
